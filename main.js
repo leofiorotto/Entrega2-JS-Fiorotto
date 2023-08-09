@@ -1,4 +1,3 @@
-// Variables
 const notebooks = [
     { id: 1, name: "Lenovo", price: 80000 },
     { id: 2, name: "Dell", price: 130000 },
