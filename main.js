@@ -19,7 +19,7 @@ const notebooks = [
         Precio: $${notebook.price}
         `);
     });
-  };    
+  };
   
   let opcion = parseInt(prompt("Ingrese una opción:\n1. Comprar notebook por ID\n2. Ver catálogo de notebooks\n3. Buscar producto por nombre\n4. Salir"));
 
@@ -38,11 +38,12 @@ const notebooks = [
   
       case 2:
         mostrarNotebooks();
+        alert ("Los productos se mostraron en consola");
         break;
   
       case 3:
         const nombre = prompt("Ingrese el nombre del producto que desea verificar si se encuentra");
-        const notebookEncontrada = notebooks.find(notebook => notebook.name.toLowerCase() === nombre);
+        const notebookEncontrada = notebooks.find(notebook => notebook.name === nombre);
   
         if (notebookEncontrada) {
             alert (`Se encontro el producto ${nombre} en el catálogo.`);
@@ -58,5 +59,3 @@ const notebooks = [
   
     opcion = parseInt(prompt("Ingrese una opción:\n1. Comprar notebook por ID\n2. Ver catálogo de notebooks\n3. Buscar producto por nombre\n4. Salir"));
   }
-  
-  console.log("Gracias por utilizar el simulador.");
