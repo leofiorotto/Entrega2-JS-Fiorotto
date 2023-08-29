@@ -1,12 +1,12 @@
-import { ProductosDisponibles } from "./main"
+import { productosDisponibles } from "./inicio.js"
 
 JSON.parse(sessionStorage.getItem("carrito")) === null && sessionStorage.setItem("carrito",JSON.stringify([]))
 
 let carrito = JSON.parse(sessionStorage.getItem("carrito"))
 
-const comprarProducto = (idProducto) => {
+export const comprarProducto = (idProducto) => {
 
-    const producto = ProductosDisponibles.find((producto) => producto.id === idProducto)
+    const producto = productosDisponibles.find((producto) => producto.id === idProducto)
 
     const {imagen, nombre, categoria, precio, id} = producto
 
@@ -30,6 +30,9 @@ const comprarProducto = (idProducto) => {
     
         sessionStorage.setItem("carrito", JSON.stringify(carrito));
     }
+    carrito = JSON.parse(sessionStorage.getItem("carrito"))
 
+    alert(`Usted compro el ${categoria}: ${nombre}`)
 
+    console.log(carrito);
 }
