@@ -1,6 +1,5 @@
 import { comprarProducto } from "./carrito.js";
 
-
 const divProds = document.getElementById("productos")
 
 export let productosDisponibles = JSON.parse(localStorage.getItem("productos"))

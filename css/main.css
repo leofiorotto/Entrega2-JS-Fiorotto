@@ -1,3 +1,16 @@
+.navbar {
+    padding: 2rem!important;
+    display: flex!important;
+    flex-direction: column!important;
+
+    
+}
+
+.body-container {
+    background-color: rgb(176, 206, 233);
+    background-image: url(../assets/bg-texture.png);
+}
+
 #productos {
     display: flex;
     flex-wrap: wrap;
@@ -9,6 +22,7 @@
 }
 
 .producto {
+    background-color: white;
     padding: 1rem;
     border: 2px solid black;
 }

@@ -32,7 +32,12 @@ export const comprarProducto = (idProducto) => {
     }
     carrito = JSON.parse(sessionStorage.getItem("carrito"))
 
-    alert(`Usted compro el ${categoria}: ${nombre}`)
 
+    Swal.fire({
+        title: 'Agregado al carrito',
+        text: `Agregaste el ${categoria} ${nombre}`,
+        imageUrl: `${imagen}`,
+        imageAlt: 'Custom image',
+      })
     console.log(carrito);
 }
