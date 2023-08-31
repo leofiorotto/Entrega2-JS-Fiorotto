@@ -1,9 +1,13 @@
 .navbar {
     padding: 2rem!important;
     display: flex!important;
-    flex-direction: column!important;
+    /* flex-direction: column!important; */    
+}
 
-    
+.navbar-nav {
+    margin-left: 35%!important;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .body-container {
@@ -25,4 +29,46 @@
     background-color: white;
     padding: 1rem;
     border: 2px solid black;
+}
+
+#carrito {
+    display: none;
+    position: fixed;
+    overflow-y: scroll;
+    top:8%;
+    right: 3%;
+    width: 30%;
+    height: 60vh;
+    border-radius: 1.5rem;
+    padding: 1.2rem;
+    margin: auto;
+    background-color: rgb(193, 225, 243);
+}
+
+#carrito h2 {
+    text-align: center;
+}
+
+#carrito > div{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+#totales {
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+
+.carrito-container {
+    display: flex;
+    gap: 2rem;
+    border-bottom: 1px solid black;
+    padding-bottom: 1.5rem;
+}
+
+.carrito-imagen {
+   width:40%; 
+   height: 30%;
 }
