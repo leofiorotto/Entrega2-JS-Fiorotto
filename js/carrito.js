@@ -12,13 +12,22 @@ let carrito = JSON.parse(sessionStorage.getItem("carrito"))
 const listaCarrito = document.getElementById("items")
 const totalCarrito = document.getElementById("totales")
 const botonCarrito = document.getElementById ("btnCarrito")
+const bodyContainer = document.getElementById ("body-container")
+const productos = document.getElementById ("productos")
 
 const divCarrito = document.getElementById("carrito")
 
 
 botonCarrito.addEventListener ("click", () => {
        mostrarCarrito();
-       divCarrito.style.display === "block" ? divCarrito.style.display = "none" : divCarrito.style.display = "block";
+        divCarrito.style.display === "block" ? divCarrito.style.display = "none" : divCarrito.style.display = "block";
+        divCarrito.style.display === "block" 
+        ? (bodyContainer.style.backgroundColor = "rgba(0, 0, 0, 0.3)", productos.style.opacity = "0.5", bodyContainer.style.backgroundImage = "none") 
+        : (bodyContainer.style.backgroundColor = "rgb(31, 37, 43)", productos.style.opacity = "1");
+
+
+
+
 })
 
 export const comprarProducto = (idProducto) => {
@@ -62,20 +71,20 @@ const mostrarCarrito = () => {
     listaCarrito.innerHTML = ''
     carrito.forEach(producto => {
     const { imagen, nombre, cantidad, precio, id } = producto
-    let body = document.createElement("tr")
+    let body = document.createElement("div")
 
     body.className = "producto__carrito"
 
-    body.innerHTML = `
-    <div class="carrito-container">
+        body.innerHTML = `
+        <div class="carrito-container">
         <img src="${imagen}" alt="${nombre}" class="carrito-imagen">
         <div class="carrito-info">
             <h3>${nombre}</h3>
             <p>Unidades: ${cantidad}</p>
             <p>Costo Unitario: $${(precio / cantidad).toFixed(2)}</p>
             <p>Costo Total: $${precio.toFixed(2)}</p>
-            <button id="+${id}" class="button btn-success">+</button>
-            <button id="-${id}" class="button btn-danger">-</button>
+            <button id="+${id}" class="button btn-success custom-button">+</button>
+            <button id="-${id}" class="button btn-danger custom-button">-</button>
         </div>
     </div>
 `;
@@ -98,17 +107,26 @@ const mostrarTotal = () => {
     if(carrito.length > 0){
         totalCarrito.innerHTML = ""
 
-        let total = document.createElement("tr")
+        let total = document.createElement("div")
 
         total.innerHTML = `
                 <br><br>
-                <b>Cantidad Total: ${generarTotales().cantidadTotal}</b><br>
-                <b>Costo Total: ${generarTotales().costoTotal.toFixed(2)}ETH</b><br><br>
-                <button class="button btn-success">Comprar</button>
+                <div class="total-carrito">
+                    <div class="cantidad-total">
+                        <p>Cantidad total</p> 
+                        <b> ${generarTotales().cantidadTotal}</b>
+                    </div>
+                    <div class="costo-total">
+                        <p>Costo total </p>
+                        <b>${generarTotales().costoTotal.toFixed(2)}ETH</b>
+                    </div>
+                    <button class="button btn-success btn-buy">Comprar</button>
+                <div>
             `;
         totalCarrito.append(total)
     }else{
         totalCarrito.innerHTML = "<h3>No hay producto en carrito</h3>"
+  
     }
 
 }

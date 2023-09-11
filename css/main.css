@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 .navbar {
     padding: 2rem!important;
     display: flex!important;
-    /* flex-direction: column!important; */    
+    border-bottom: 2px solid black;   
+
 }
 
 .navbar-nav {
@@ -9,9 +12,39 @@
     font-size: 1.2rem;
     font-weight: bold;
 }
+#btnCarrito {
+    padding: 1.1rem;
+    padding-bottom: 0;
+
+}
+
+#btnCarrito:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: transform 0.3s; /* Transición suave para la escala */
+    background-color: rgb(231, 229, 229);
+    border-radius: 50%;
+}
+
+#btnLogin {
+    padding: 1rem;
+
+}
+
+#btnLogin:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: transform 0.3s; /* Transición suave para la escala */
+    border-radius: 50%;
+
+}
+
+.a-login {
+    color: black;
+}
 
 .body-container {
-    background-color: rgb(176, 206, 233);
+    background-color: rgb(31, 37, 43);
     background-image: url(../assets/bg-texture.png);
 }
 
@@ -29,21 +62,25 @@
     background-color: white;
     padding: 1rem;
     border: 2px solid black;
+    border-radius: 0.5rem;
 }
 
 #carrito {
     display: none;
     position: fixed;
-    overflow-y: scroll;
-    top:8%;
-    right: 3%;
-    width: 30%;
-    height: 60vh;
-    border-radius: 1.5rem;
+    overflow-y: auto;
+    top:5%;
+    right: 2%;
+    height: 90vh;
+    border-radius: 1rem;
     padding: 1.2rem;
     margin: auto;
-    background-color: rgb(193, 225, 243);
+    background-color: rgb(255, 255, 255);
+    padding: 2rem;  
+    animation: AnimacionCarrito 0.25s ease forwards;
+
 }
+
 
 #carrito h2 {
     text-align: center;
@@ -51,13 +88,17 @@
 
 #carrito > div{
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 1rem;
 }
 
+
+
 #totales {
     justify-content: center;
     font-size: 1.5rem;
+    color: black;
 }
 
 
@@ -71,4 +112,259 @@
 .carrito-imagen {
    width:40%; 
    height: 30%;
+}
+
+
+
+#bg-carrito {
+    width: 100vw;
+    height: 100vh;
+}
+
+.button-card {
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-family: 'Bebas Neue', sans-serif;
+    background-color: rgb(85, 130, 255);
+    border: none;
+
+}
+
+.tittle-carrito {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid black;
+    padding: 1rem;
+    font-family: 'Bebas Neue', sans-serif;
+
+}
+
+.esc-carrito {
+    font-family: sans-serif;
+    font-size: 2rem;
+    color: black;
+    position: absolute;
+    top: 0%;
+    right: 2%;
+}
+
+.esc-carrito:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+    cursor: pointer;
+    text-decoration:none;
+}
+
+
+.ver-button {
+    width: 80%;
+    left: 0%;
+    border-radius: 1rem 0 0 0;
+    border-right: 2px solid white;
+}
+
+.agregar-button {
+    width: 20%;
+    left: 80%;
+    border-radius: 0 1rem 0 0;
+}
+
+.btn-buy {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.cantidad-total {
+    display: flex;
+    justify-content: space-between;
+}
+
+.costo-total {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.producto:hover{
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+}
+
+.producto:hover .ver-button {
+    display: block;
+    animation: aumentarAltura 0.15s ease forwards;
+}
+
+
+.producto:hover .agregar-button {
+    display: block;
+    animation: aumentarAltura 0.15s ease forwards;
+}
+
+@keyframes aumentarAltura {
+    from {
+      opacity: 0;
+      bottom: -15%;
+      height: 0;
+    }
+    to {
+      opacity: 1;
+      bottom: 0%;
+      height: 2.4rem;
+    }
+  }
+
+  @keyframes AnimacionCarrito {
+    from {
+      opacity: 0;
+      right: -20%;
+      height: 0;
+    }
+    to {
+      opacity: 1;
+      right:3%;
+   
+    }
+  }
+
+
+
+
+  /*login*/
+
+  .tittle-login {
+    text-align: center;
+    font-size: 2rem;
+    font-family: monospace;
+    color: black;
+  }
+
+.login-container {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+#user-login {
+    width: 30%;
+    border: 2px solid black;
+    border-radius: 1rem;
+    padding: 8rem;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-color: white;
+
+}
+
+#user-login > button {
+
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#user-register > button {
+
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+
+#user-register {
+    width: 40%;
+    border: 2px solid black;
+    border-radius: 1rem;
+    padding: 8rem;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: white;
+    display: none;
+
+}
+
+.labelInput {
+    display:  flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.labelInput > input {
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.nota {
+    color:aliceblue;
+}
+
+.btns-register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.back-login {
+    color: black;
+    text-align: center;
+}
+
+.back-login:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+}
+
+#btn-register {
+    width: 70%;
+    color: white;
+    background-color: rgb(44, 39, 39);
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+#btn-register:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+}
+
+#btn-login {
+    width: 70%;
+    color: white;
+    background-color: rgb(44, 39, 39);
+}
+
+#register-login {
+    width: 70%;
+    height: 5%;
+    color: white;
+    background-color: rgb(44, 39, 39);
+    padding: 0;
 }

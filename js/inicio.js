@@ -23,8 +23,8 @@ export const generarCard = (productos) => {
             <p>${coleccion}</p>
             <p>${categoria}</p>
             <b>Precio: ${precio} ETH</b><br>
-            <button id="ver${id}">Ver</button>
-            <button id="comprar${id}">Agregar</button>
+            <button id="ver${id}" class="ver-button button-card" >View</button>
+            <button id="comprar${id}" class="agregar-button button-card">🛒</button>
         `;
 
         divProds.appendChild(card)
