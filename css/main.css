@@ -114,24 +114,6 @@
    height: 30%;
 }
 
-
-
-#bg-carrito {
-    width: 100vw;
-    height: 100vh;
-}
-
-.button-card {
-    display: none;
-    position: absolute;
-    cursor: pointer;
-    font-size: 1.4rem;
-    font-family: 'Bebas Neue', sans-serif;
-    background-color: rgb(85, 130, 255);
-    border: none;
-
-}
-
 .tittle-carrito {
     display: flex;
     justify-content: space-between;
@@ -167,9 +149,16 @@
 }
 
 .agregar-button {
-    width: 20%;
-    left: 80%;
-    border-radius: 0 1rem 0 0;
+    position: absolute;
+    width: 100%;
+    left: 0%;
+    border-radius: 1rem 1rem 0 0;
+    display: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-family: 'Bebas Neue', sans-serif;
+    background-color: rgb(85, 130, 255);
+    border: none;
 }
 
 .btn-buy {
@@ -216,7 +205,7 @@
     to {
       opacity: 1;
       bottom: 0%;
-      height: 2.4rem;
+      height: 3.4rem;
     }
   }
 

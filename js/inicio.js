@@ -2,6 +2,13 @@ import { comprarProducto } from "./carrito.js";
 
 const divProds = document.getElementById("productos")
 
+// const filterColeccion = document.getElementById("filter-coleccion")
+const filterPrecio = document.getElementById("filter-precio")
+const filterNombre = document.getElementById("filter-nombre")
+const filterColeccion =document.getElementById("filter-coleccion")
+const filterTodos = document.getElementById ("todos")
+
+
 export let productosDisponibles = JSON.parse(localStorage.getItem("productos"))
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -9,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 export const generarCard = (productos) => {
+    divProds.innerHTML = "";
 
     productos.forEach(producto => {
 
@@ -23,7 +31,6 @@ export const generarCard = (productos) => {
             <p>${coleccion}</p>
             <p>${categoria}</p>
             <b>Precio: ${precio} ETH</b><br>
-            <button id="ver${id}" class="ver-button button-card" >View</button>
             <button id="comprar${id}" class="agregar-button button-card">🛒</button>
         `;
 
@@ -33,3 +40,67 @@ export const generarCard = (productos) => {
         btnComprar.addEventListener("click", () => comprarProducto(id))
     });
 }
+
+  filterPrecio.addEventListener("click", (e) => {
+
+        const orden = e.target.innerHTML
+
+        let productosporPrecio = (orden === "Ascendente") 
+        ? productosDisponibles.sort((a, b) => a.precio - b.precio)
+        : productosDisponibles.sort((a, b) => b.precio - a.precio)
+        
+        generarCard(productosporPrecio)
+
+    })
+
+
+    
+  filterPrecio.addEventListener("click", (e) => {
+
+    const orden = e.target.innerHTML
+
+    let productosporPrecio = (orden === "Ascendente") 
+    ? productosDisponibles.sort((a, b) => a.precio - b.precio)
+    : productosDisponibles.sort((a, b) => b.precio - a.precio)
+
+    console.log(productosDisponibles);
+
+    generarCard(productosporPrecio)
+
+})
+
+
+filterNombre.addEventListener("click", (e) => {
+    filtrarPorNombre(e.target.innerHTML.toLowerCase());
+});
+
+const filtrarPorNombre = (orden) => {
+    const productosporNombre = [...productosDisponibles];
+
+    productosporNombre.sort((a, b) => {
+        return orden === "ascendente"
+            ? a.nombre.localeCompare(b.nombre)
+            : b.nombre.localeCompare(a.nombre);
+    });
+
+    generarCard(productosporNombre);
+};
+
+filterColeccion.addEventListener ("click" , (e) => {
+    
+    const Pcoleccion = e.target.innerHTML
+    
+    console.log(Pcoleccion);
+
+    let productosporColeccion = productosDisponibles.filter(producto => producto.coleccion === Pcoleccion);
+
+    console.log(productosporColeccion);
+
+    generarCard(productosporColeccion);
+
+})
+
+
+filterTodos.addEventListener("click", () => {
+    generarCard(productosDisponibles);
+});

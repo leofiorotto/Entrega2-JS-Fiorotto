@@ -20,34 +20,39 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-        <li class="nav-item dropdown">
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="todos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Todos
+          </a>
+        </li>
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="productoDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Producto
             </a>
-            <div class="dropdown-menu" aria-labelledby="productoDropdown">
-                <a class="dropdown-item" href="#" data-filter="boredApe">Bored-Ape</a>
-                <a class="dropdown-item" href="#" data-filter="deGod">De God</a>
-                <a class="dropdown-item" href="#" data-filter="tower">Tower</a>
-                <a class="dropdown-item" href="#" data-filter="mirascape">Mirascape</a>
-            </div>
+            <ul class="dropdown-menu" id="filter-coleccion">
+                <li><a class="dropdown-item" href="#" data-filter="Bored">Bored</a></li>
+                <li><a class="dropdown-item" href="#" data-filter="Degod">Degod</a></li>
+                <li><a class="dropdown-item" href="#" data-filter="Tower">Tower</a></li>
+                <li><a class="dropdown-item" href="#" data-filter="Mirascapes">Mirascapes</a></li>
+            </ul>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="precioDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <ul class="nav-link dropdown-toggle" href="#" id="precioDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Precio
-            </a>
-            <div class="dropdown-menu" aria-labelledby="precioDropdown">
-                <a class="dropdown-item" href="#" data-sort="ascendente">Ascendente</a>
-                <a class="dropdown-item" href="#" data-sort="descendente">Descendente</a>
-            </div>
+                <ul class="dropdown-menu" id="filter-precio">
+                  <li><a class="dropdown-item" href="#" >Ascendente</a></li>
+                  <li><a class="dropdown-item" href="#">Descendente</a></li>
+                </ul>
+              </ul>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="nombreDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Nombre
             </a>
-            <div class="dropdown-menu" aria-labelledby="nombreDropdown">
-                <a class="dropdown-item" href="#" data-sort="ascendente">Ascendente</a>
-                <a class="dropdown-item" href="#" data-sort="descendente">Descendente</a>
-            </div>
+            <ul class="dropdown-menu" id="filter-nombre">
+                <li><a class="dropdown-item" href="#" id="ascendente">Ascendente</a></li>
+                <li><a class="dropdown-item" href="#" id="descendente">Descendente</a></li>
+            </ul>
         </li>
     </ul>
     </div>
@@ -68,8 +73,7 @@
       </a>
     </div>
   </nav>
-
-  <div id="productos"></div>
+ <div id="productos"></div>
   <div id="bg-carrito">
       <div id="carrito">
         <div class="tittle-carrito">
