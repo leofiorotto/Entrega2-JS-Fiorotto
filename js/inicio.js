@@ -2,18 +2,21 @@ import { comprarProducto } from "./carrito.js";
 
 const divProds = document.getElementById("productos")
 
-// const filterColeccion = document.getElementById("filter-coleccion")
 const filterPrecio = document.getElementById("filter-precio")
 const filterNombre = document.getElementById("filter-nombre")
 const filterColeccion =document.getElementById("filter-coleccion")
 const filterTodos = document.getElementById ("todos")
 
-
 export let productosDisponibles = JSON.parse(localStorage.getItem("productos"))
 
 document.addEventListener("DOMContentLoaded", () => {
-    generarCard(productosDisponibles)
-})
+    fetch('../db/productos.json')
+        .then(response => response.json())
+        .then(data => {
+            generarCard(data);
+        })
+        .catch(error => console.error('Error:', error));
+});
 
 export const generarCard = (productos) => {
     divProds.innerHTML = "";
@@ -48,7 +51,9 @@ export const generarCard = (productos) => {
         let productosporPrecio = (orden === "Ascendente") 
         ? productosDisponibles.sort((a, b) => a.precio - b.precio)
         : productosDisponibles.sort((a, b) => b.precio - a.precio)
-        
+    
+        console.log(productosDisponibles);
+    
         generarCard(productosporPrecio)
 
     })
