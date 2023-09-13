@@ -10,7 +10,7 @@ const filterTodos = document.getElementById ("todos")
 export let productosDisponibles = JSON.parse(localStorage.getItem("productos"))
 
 document.addEventListener("DOMContentLoaded", () => {
-    fetch('../db/productos.json')
+    fetch('./db/productos.json')
         .then(response => response.json())
         .then(data => {
             generarCard(data);
