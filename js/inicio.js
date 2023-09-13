@@ -7,16 +7,19 @@ const filterNombre = document.getElementById("filter-nombre")
 const filterColeccion =document.getElementById("filter-coleccion")
 const filterTodos = document.getElementById ("todos")
 
-export let productosDisponibles = JSON.parse(localStorage.getItem("productos"))
+ export let productosDisponibles;
 
 document.addEventListener("DOMContentLoaded", () => {
     fetch('./db/productos.json')
         .then(response => response.json())
         .then(data => {
-            generarCard(data);
+            productosDisponibles = data;
+            generarCard(productosDisponibles);
         })
         .catch(error => console.error('Error:', error));
+
 });
+
 
 export const generarCard = (productos) => {
     divProds.innerHTML = "";
@@ -44,36 +47,17 @@ export const generarCard = (productos) => {
     });
 }
 
-  filterPrecio.addEventListener("click", (e) => {
-
-        const orden = e.target.innerHTML
-
-        let productosporPrecio = (orden === "Ascendente") 
-        ? productosDisponibles.sort((a, b) => a.precio - b.precio)
-        : productosDisponibles.sort((a, b) => b.precio - a.precio)
-    
-        console.log(productosDisponibles);
-    
-        generarCard(productosporPrecio)
-
-    })
-
-
-    
-  filterPrecio.addEventListener("click", (e) => {
+filterPrecio.addEventListener("click", (e) => {
 
     const orden = e.target.innerHTML
 
     let productosporPrecio = (orden === "Ascendente") 
     ? productosDisponibles.sort((a, b) => a.precio - b.precio)
     : productosDisponibles.sort((a, b) => b.precio - a.precio)
-
-    console.log(productosDisponibles);
-
+    
     generarCard(productosporPrecio)
 
 })
-
 
 filterNombre.addEventListener("click", (e) => {
     filtrarPorNombre(e.target.innerHTML.toLowerCase());
@@ -94,12 +78,8 @@ const filtrarPorNombre = (orden) => {
 filterColeccion.addEventListener ("click" , (e) => {
     
     const Pcoleccion = e.target.innerHTML
-    
-    console.log(Pcoleccion);
 
     let productosporColeccion = productosDisponibles.filter(producto => producto.coleccion === Pcoleccion);
-
-    console.log(productosporColeccion);
 
     generarCard(productosporColeccion);
 

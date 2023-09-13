@@ -15,6 +15,9 @@ const botonCarrito = document.getElementById ("btnCarrito")
 const bodyContainer = document.getElementById ("body-container")
 const productos = document.getElementById ("productos")
 
+const limpiarCarritoBtn = document.getElementById("limpiarCarrito");
+
+
 const divCarrito = document.getElementById("carrito")
 
 
@@ -87,6 +90,7 @@ const mostrarCarrito = () => {
             <button id="-${id}" class="button btn-danger custom-button">-</button>
         </div>
     </div>
+    
 `;
 
     listaCarrito.append(body)
@@ -110,6 +114,8 @@ const mostrarTotal = () => {
         let total = document.createElement("div")
 
         total.innerHTML = `
+        <button id="limpiarCarrito">Limpiar</button>
+
                 <br><br>
                 <div class="total-carrito">
                     <div class="cantidad-total">
@@ -187,3 +193,11 @@ const restarCantidad = (id) => {
 
 }
 
+
+document.addEventListener("click", (event) => {
+    if (event.target.id === "limpiarCarrito") {
+        carrito = [];
+        sessionStorage.setItem("carrito", JSON.stringify(carrito));
+        mostrarCarrito(); 
+    }
+});

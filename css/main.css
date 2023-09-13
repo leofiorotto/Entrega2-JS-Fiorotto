@@ -140,6 +140,19 @@
     text-decoration:none;
 }
 
+#limpiarCarrito {
+   background-color: grey;
+   color: white;
+   margin: 1rem;
+   border-radius: 1rem;
+   position: relative;
+   left: 50%;
+   transform: translate(-50%, 0);
+   border: none;
+   padding: 0.5rem;
+   cursor: pointer;
+}
+
 
 .ver-button {
     width: 80%;
